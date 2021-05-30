@@ -12,7 +12,7 @@
 
 	<div id="page-wrapper">
         <header id="header">
-            <img style="width:50px;float:left;padding:5px;margin-left:-15px; margin-bottom:20px" src="images/terrischallengelogo.png"></img>
+           <!--  <img style="width:50px;float:left;padding:5px;margin-left:-15px; margin-bottom:20px" src="images/terrischallengelogo.png"></img> -->
 						<nav>
 							<a style="float:right" href="#menu">Menu</a>
               <ul class="menubar">
@@ -47,7 +47,7 @@
 							<!-- <p>Two weeks of innovation, research, and community-building for students around the world</p> -->
               <P>THIS PAGE IS CURRENTLY UNDER CONSTRUCTION</P>
 						</div>
-					</section>
+			</section>
 	
 	
 
@@ -61,8 +61,12 @@
 	</div>
 
 	<table id="schedule" style="overflow-y: auto;">
-
-	<tr id="thead">
+		<th>Time</th>
+		<th>Evenet</th>
+		<tbody id="events">
+			
+		</tbody>
+	<!-- <tr id="thead">
 	  	<th>Time</th>
 	  	<th>Event</th>
 	  </tr>
@@ -111,7 +115,7 @@
 		  		<span class="event-name">Opening Ceremony</span>
 		  		<span class="event-description">This is the Opening Ceremony</span>
 		  	</td>
-		  </tr>
+		  </tr> -->
 
 
 	</table>
@@ -151,12 +155,38 @@
               <li>&copy; Superposition Fremont All rights reserved.</li>
             </ul>
           </div>
-        </section>
+       </section>
 
 	
-
+      </div>
 	<script>
+		fetch('data.json')
+    	.then(response => response.json())
+    	.then(data => {
+    		appendData(data);
+    	})
+    	// .then(console.log);
+
+    function appendData(data){
+    	var table = document.getElementById('events')
+    	console.log(data);
+    	for(var i = 0; i < data.length; i++){
+    		console.log(123);
+    		var row = 
+    		`<tr>
+    			<td>${data[i].hourstart + ":" + data[i].minstart}</td>
+    			<td>${data[i].eventd}</td>
+    			<td>${data[i].hourend}</td>
+    			<td>${data[i].minend}</td>
+    			<td>${data[i].daystart}</td>
+    			<td>${data[i].dayend}</td>
+
+    		</tr>`
+    		table.innerHTML += row
+    	}
+    }
 		document.onkeydown = checkKey;
+    
 
 function checkKey(e) {
 
@@ -177,7 +207,6 @@ function checkKey(e) {
        // right arrow
        movetimeforward(15);
     }
-
 }
 </script>
 	<script type="text/javascript" src="data.json"></script>
