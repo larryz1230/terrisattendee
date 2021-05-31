@@ -24,7 +24,7 @@ border-radius: 250px;
 box-shadow: inset 0 0 10px #4a3933;*/
 border: 14px solid rgba(255,255,255,0);
 position: absolute;
-top: 50%;
+top: 55%;
 left: 15%;
 /*z-index: 999;*/
 }
@@ -107,18 +107,27 @@ margin-left: -3px;
 #schedule{
 	position: absolute;
  	right: 2%;
- 	top: 50%;
+ 	top: 60%;
  	width: 50%;
  	/*background-color: white;*/
  	display: inline-block;
  	height: 300px;
 }
 
-#scheduletitle{
+/*#scheduletitle{
 	position: absolute;
- 	right: 0%;
+ 	left: 10%;
  	top: 50%;
- 	width: 100%;
- 	/*background-color: white;*/
- 	display: inline-block;
-}
+ 	width: 100px;
+ 	height: 100px;
+ 	background-color: white;
+ 	display: block;
+}*/
+
+/*.schetitle{
+	display: block;
+	background-color: white;
+	position: relative;
+  	top: 20px;
+  	z-index: 1000;
+}*/

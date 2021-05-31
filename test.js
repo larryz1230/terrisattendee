@@ -1,8 +1,13 @@
+// TODO: Make time boundaries
 
+
+var dayofweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var d = new Date();
 var curdate = d.getDate();
 var curhour = d.getHours();
 var curmin = 0;
+ console.log(d.getMonth() + " " + d.getDate());
+document.getElementById('daytitle').innerHTML = dayofweek[d.getDay()] + " " + (d.getMonth()+1) + "/" +  d.getDate();
 
 
 
@@ -50,37 +55,11 @@ function updateclock(){
 // updateclock();
 
 function movetimeforward(time){
-	if (curmin+time>=60){
-		if (curhour==23){
-			curdate++;
-		}
-		curhour++;
-		curhour = curhour%24;
-		
-	}
-
-	if (curmin+time<0){
-		if (curhour==0){
-			curdate--;
-			curhour = 24;
-		}
-		curhour--;
-		
-	}
-
-	if (time>0){
-		curmin = Math.abs((curmin + time)%60);
-	} else {
-		curmin = curmin+120;
-		curmin = curmin + time;
-		curmin = curmin%60;
-	}
-
-	
-	
-	d = new Date(2021, 5, curdate, curhour, curmin);
-	console.log(curdate + " " +  curhour + " "+ curmin);
+	d = new Date(2021, d.getMonth(), d.getDate(), d.getHours(), (d.getMinutes()+time));
+	console.log(dayofweek[d.getDay()] + " " + d.getMonth() + " " + d.getDate() + " " +  d.getHours() + " "+ d.getMinutes());
 	updateclock();
+	document.getElementById('daytitle').innerHTML = dayofweek[d.getDay()] + " " + (d.getMonth()+1) + "/" +  d.getDate();
+	print();
 	return;
 }
 
@@ -89,9 +68,67 @@ function movetimeback(){
 }
 
 
-var mydata = JSON.parse(data);
-var length = mydata.length;
-for (var i=0; i<length; i++){
-	console.log(mydata[i].eventd);
+// var mydata = JSON.parse(data);
+// var length = mydata.length;
+// for (var i=0; i<length; i++){
+// 	console.log(mydata[i].eventd);
+// }
+
+function skipday(direction){
+	console.log(direction);
+	d = new Date(d.getYear(), d.getMonth(), (d.getDate()+direction), d.getHours(), d.getMinutes());
+	movetimeforward(0);
+	print();
 }
 
+
+
+
+print();
+
+
+function print(){
+
+	fetch('data.json')
+    	.then(response => response.json())
+    	.then(data => {
+    		appendData(data);
+    	})
+    	// .then(console.log);
+
+  }
+
+
+  function appendData(data){
+  	var table = document.getElementById('events');
+  	table.innerHTML = "";
+    	console.log(data);
+    	for(var i = 0; i < data.length; i++){
+    		console.log(data[i].monthstart + " " + (d.getMonth()+1));
+    		if (data[i].daystart==d.getDate()){
+    			if (data[i].monthstart==(d.getMonth()+1)){
+    				if (data[i].hourstart==d.getHours()){
+    					var row = 
+    		`<tr style="background-color:#6b6464">
+    			<td style="width: 10%;">${data[i].hourstart + ":" + data[i].minstart}</td>
+    			<div style="display:block;">
+    				<td style="width: 60%;">${data[i].eventd}</td>
+    				<td style="width: 30%;">${data[i].location}</td>
+    			</div>
+    		</tr>`
+    		table.innerHTML += row;
+    				} else{
+    		var row = 
+    		`<tr>
+    			<td style="width: 10%;">${data[i].hourstart + ":" + data[i].minstart}</td>
+    			<div style="display:block;">
+    				<td style="width: 60%;">${data[i].eventd}</td>
+    				<td style="width: 30%;">${data[i].location}</td>
+    			</div>
+    		</tr>`
+    		table.innerHTML += row;
+    	}
+    	}
+    }
+    	}
+  }
