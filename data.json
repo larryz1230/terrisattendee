@@ -1,1 +1,4 @@
-[{"eventd" : "Opening Ceremony", "monthstart": "5", "daystart" : "28", "hourstart" : "20", "minstart" : "15", "monthend": "5", "dayend" : "28", "hourend" : "20", "minend" : "45"}, {"eventd" : "Closing Ceremony", "monthstart": "5", "daystart" : "30", "hourstart" : "10", "minstart" : "15", "monthend": "5", "dayend" : "30", "hourend" : "12", "minend" : "45"}]
+[{"eventd" : "Opening Ceremony", "location":"zoom", "monthstart": "5", "daystart" : "28", "hourstart" : "20", "minstart" : "15", "monthend": "5", "dayend" : "28", "hourend" : "20", "minend" : "45"},
+ {"eventd" : "Closing Ceremony", "location":"discord", "monthstart": "5", "daystart" : "30", "hourstart" : "10", "minstart" : "15", "monthend": "5", "dayend" : "30", "hourend" : "12", "minend" : "45"}, 
+ {"eventd" : "Closing Ceremony", "location":"N/A", "monthstart": "5", "daystart" : "30", "hourstart" : "10", "minstart" : "15", "monthend": "5", "dayend" : "30", "hourend" : "12", "minend" : "45"},
+  {"eventd" : "Closing Ceremo wqdqdqwdwqdqwdqwdq", "location":"discord", "monthstart": "5", "daystart" : "30", "hourstart" : "10", "minstart" : "15", "monthend": "5", "dayend" : "30", "hourend" : "12", "minend" : "45"}]

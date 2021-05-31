@@ -89,9 +89,9 @@ function movetimeback(){
 }
 
 
-var mydata = JSON.parse(data);
-var length = mydata.length;
-for (var i=0; i<length; i++){
-	console.log(mydata[i].eventd);
-}
+// var mydata = JSON.parse(data);
+// var length = mydata.length;
+// for (var i=0; i<length; i++){
+// 	console.log(mydata[i].eventd);
+// }
 

@@ -51,71 +51,27 @@
 	
 	
 
-	<div id="scheduletitle">
-		<span>
+<!-- 	<div id="scheduletitle">
 	  	<div><button>Back</button></div>
 	  	<p>Date</p>
 	  	<div><button>Next</button></div>
-
-	  	</span>
 	</div>
+ -->
+
+ 	<div class="schetitle" style="position: absolute; top: 50%; right: 11%; width: 41%; display: inline-flex; justify-content: space-between;">
+ 		<button style="float: left; display: block; margin-top: -15px;"><</button> 
+		<p style="height: 20px;">Event</p>
+		<button style="float: right; display: block; margin-top: -15px;">></button>
+	</div>
+
 
 	<table id="schedule" style="overflow-y: auto;">
 		<th>Time</th>
-		<th>Evenet</th>
+		<th>Event</th>
+		<th>Location</th>
 		<tbody id="events">
 			
 		</tbody>
-	<!-- <tr id="thead">
-	  	<th>Time</th>
-	  	<th>Event</th>
-	  </tr>
-
-		  <tr>
-		  	<td>08:00AM</td>
-		  	<td>
-		  		<span class="event-name">Opening Ceremony</span>
-		  		<span class="event-description">This is the Opening Ceremony</span>
-		  	</td>
-		  </tr>
-
-		  <tr>
-		  	<td>08:00AM</td>
-		  	<td>
-		  		<span class="event-name">Opening </span>
-		  		<span class="event-description">This </span>
-		  	</td>
-		  </tr>
-
-
-		  <tr>
-		  	<td>08:00AM</td>
-		  	<td>
-		  		<span class="event-name">Opening Ceremony</span>
-		  		<span class="event-description">This is the Opening Ceremony</span>
-		  	</td>
-		  </tr>
-		   <tr>
-		  	<td>08:00AM</td>
-		  	<td>
-		  		<span class="event-name">Opening Ceremonqwdqwdqwdwqdqwdwqqqwdqwdy</span>
-		  		<span class="event-description">This is the Opening Ceremony</span>
-		  	</td>
-		  </tr>
-		   <tr>
-		  	<td>08:00AM</td>
-		  	<td>
-		  		<span class="event-name">Opening Ceremony</span>
-		  		<span class="event-description">This is the Opening Ceremony</span>
-		  	</td>
-		  </tr>
-		  <tr>
-		  	<td>08:00AM</td>
-		  	<td>
-		  		<span class="event-name">Opening Ceremony</span>
-		  		<span class="event-description">This is the Opening Ceremony</span>
-		  	</td>
-		  </tr> -->
 
 
 	</table>
@@ -157,6 +113,9 @@
           </div>
        </section>
 
+
+       
+
 	
       </div>
 	<script>
@@ -174,18 +133,25 @@
     		console.log(123);
     		var row = 
     		`<tr>
-    			<td>${data[i].hourstart + ":" + data[i].minstart}</td>
-    			<td>${data[i].eventd}</td>
-    			<td>${data[i].hourend}</td>
-    			<td>${data[i].minend}</td>
-    			<td>${data[i].daystart}</td>
-    			<td>${data[i].dayend}</td>
+    			<td style="width: 10%;">${data[i].hourstart + ":" + data[i].minstart}</td>
+    			<div style="display:block;">
+    				<td style="width: 60%;">${data[i].eventd}</td>
+    				<td style="width: 30%;">${data[i].location}</td>
+    			</div>
+    			
 
     		</tr>`
     		table.innerHTML += row
     	}
     }
 		document.onkeydown = checkKey;
+
+
+
+		// <td>${data[i].hourend}</td>
+  //   			<td>${data[i].minend}</td>
+  //   			<td>${data[i].daystart}</td>
+  //   			<td>${data[i].dayend}</td>
     
 
 function checkKey(e) {
